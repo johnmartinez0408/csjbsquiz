@@ -1,0 +1,39 @@
+<template name = "quiz1">
+
+	<h1>John's Quiz 1 </h1>
+
+	<form id="peopleEdit" class = "col-md-6 bg-info">
+		<br/>
+		project name:<input type="text" name="projectName"><br/>
+		first name:<input type="text" name="firstName"><br/>
+		last name:<input type="text" name="lastName"><br/>
+		git URL:<input type="text" name="git" ><br/>
+		deployed URL:<input type="text" name="deployed"><br/>
+		<input type="submit" id="submitEdit"><br/>
+	</form>
+
+	<div class = "col-md-6 bg-info">
+		<table class="table table-condensed">
+			<thead>
+				<tr><th>Project Name</th><th>First Name</th><th>Last Name</th><th>Git URL</th><th>Deployed URL</th></tr>
+			</thead>
+		{{#each peopleFunction}}
+		  {{> showInfo}}
+		  <span class="glyphicon glyphicon-remove delete-icon" aria-hidden="true"></span>
+		{{/each}}
+		</table>
+	</div>
+
+
+</template>
+
+
+<template name = "showInfo">
+	<tr>
+   	  <td>{{projectName}}</td>
+   	  <td>{{firstName}}</td>
+   	  <td>{{lastName}}</td>
+   	  <td><a href="http://{{git}}">{{git}}</a></td>
+   	  <td><a href="http://{{deployed}}">{{deployed}}</a></td>
+   </tr>
+</template>
